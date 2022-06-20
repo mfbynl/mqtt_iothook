@@ -88,9 +88,9 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.println();
 
   for(int i = 0; i < in; i++){
-    digitalWrite(LED_BUILTIN,HIGH);
-    delay(delay_hesap*1000);
     digitalWrite(LED_BUILTIN,LOW);
+    delay(delay_hesap*1000);
+    digitalWrite(LED_BUILTIN,HIGH);
     delay(delay_hesap*1000);
     Serial.print(i+1);
     Serial.println(". tur bitti");
@@ -100,7 +100,11 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
   Serial.println();
   Serial.println("-----------------------");
+  digitalWrite(LED_BUILTIN,HIGH);
+
 }
+
+
 
 void loop() {
   client.loop();
